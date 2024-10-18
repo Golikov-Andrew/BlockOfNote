@@ -1,0 +1,74 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:BlockOfNote.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BlockOfNote.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="BlockOfNote">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать" Click="MenuItem_CreateFile_OnClick"/>
+                <MenuItem Header="Открыть" Click="MenuItem_OpenFile_OnClick"/>
+                <MenuItem Header="Сохранить" Click="MenuItem_SaveFile_OnClick"/>
+                <MenuItem Header="Сохранить как" Click="MenuItem_SaveAsFile_OnClick"/>
+            </MenuItem>
+            
+            <MenuItem Header="Шрифт">
+                <MenuItem Header="Семейство">
+                    <MenuItem Header="Roboto" Click="MenuItem_ChangeFontFamily_OnClick"/>
+                    <MenuItem Header="Pacifico" Click="MenuItem_ChangeFontFamily_OnClick"/>
+                    <MenuItem Header="Monotone" Click="MenuItem_ChangeFontFamily_OnClick"/>
+                    <MenuItem Header="Montserrat" Click="MenuItem_ChangeFontFamily_OnClick"/>
+                </MenuItem>
+                <MenuItem Header="Жирность">
+                    <MenuItem Header="Light" Click="MenuItem_ChangeFontWeight_OnClick"/>
+                    <MenuItem Header="Normal" Click="MenuItem_ChangeFontWeight_OnClick"/>
+                    <MenuItem Header="Bold" Click="MenuItem_ChangeFontWeight_OnClick"/>
+                </MenuItem>
+                <MenuItem Header="Размер">
+                    <MenuItem Header="10" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="12" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="14" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="16" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="18" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="20" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="22" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="24" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="26" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="30" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="36" Click="MenuItem_ChangeFontSize_OnClick"/>
+                    <MenuItem Header="40" Click="MenuItem_ChangeFontSize_OnClick"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Вид">
+                <MenuItem Header="Перенос слов" Click="MenuItem_ChangeWordWrap_OnClick"/>
+                <MenuItem Header="Инфо-панель"  Click="MenuItem_ChangeInfoPanelVisibility_OnClick"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="--Блокнот--"/>
+                <Separator/>
+                <MenuItem Header="Версия программы 1.0.0"/>
+                <Separator/>
+                <MenuItem Header="Автор: Голиков Андрей"/>
+            </MenuItem>
+        </Menu>
+        <DockPanel x:Name="InfoPanel" DockPanel.Dock="Bottom" Height="36">
+            <Button Click="Button_RefreshInfo_OnClick">Обновить -&gt;</Button>
+            <Grid ColumnDefinitions="20*, 20*, 20*, 40*" VerticalAlignment="Center">
+                <TextBlock Grid.Column="0" x:Name="CharsCount" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBlock Grid.Column="1" x:Name="WordsCount" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBlock Grid.Column="2" x:Name="LinesCount" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                <TextBlock Grid.Column="3" x:Name="PathToFile" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            </Grid>
+        </DockPanel>
+        <TextBox x:Name="MainTextContent" TextWrapping="Wrap" AcceptsReturn="True"/>
+    </DockPanel>
+</Window>

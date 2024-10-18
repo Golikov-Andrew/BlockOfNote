@@ -1,0 +1,21 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="BlockOfNote.App"
+             xmlns:local="using:BlockOfNote"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+             <Application.Resources>
+                 <FontFamily x:Key="Pacifico">avares://BlockOfNote/Assets/Fonts#Pacifico</FontFamily>
+                 <FontFamily x:Key="Montserrat">avares://BlockOfNote/Assets/Fonts#Montserrat</FontFamily>
+                 <FontFamily x:Key="Roboto">avares://BlockOfNote/Assets/Fonts#Roboto</FontFamily>
+                 <FontFamily x:Key="Monotone">avares://BlockOfNote/Assets/Fonts#Monotone</FontFamily>
+             </Application.Resources>
+</Application>
